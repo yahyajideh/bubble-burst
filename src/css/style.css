@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --haiti: #070720;
+  --blackcurrant: #12122f;
+  --cyan: #23fbec;
+  --strawberry: #ff2a8a;
+  --blue-chill: #087e8b;
+  --foam: #def2f1;
+  --light-slate-blue: #7b61ff;
+}
+
+body {
+  background-color: var(--haiti);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#game-container {
+  width: 1030px;
+  height: 608px;
+  background-color: var(--light-slate-blue);
+  position: relative;
+}
+
+.game-frame {
+  position: absolute;
+  width: 1000px;
+  height: 578px;
+  background-color: var(--blackcurrant);
+  left: 15px;
+  top: 15px;
+  box-shadow: 0 0 15px 1px rgba(7, 7, 32, 0.75);
+}
+
+.timer-bar {
+  height: 9px;
+  background-color: var(--cyan);
+  width: 100%;
+}
