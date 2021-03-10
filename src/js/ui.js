@@ -1,6 +1,9 @@
 const pauseBtn = document.querySelector('.pause-button');
 const modalOverlay = document.querySelector('.paused-modal');
 const modal = document.querySelector('.modal');
+const gameTimeProgressEl = document.querySelector('.game-timer-progress');
+
+const timerBar = document.querySelector('.timer-bar');
 
 export const togglePauseModal = function togglePauseModal() {
   pauseBtn.addEventListener('click', () => {
@@ -8,3 +11,7 @@ export const togglePauseModal = function togglePauseModal() {
     modal.style.animationName = 'scalein';
   });
 };
+
+export const updateGameTimeProgress = fucntion updateGameTimeProgress() {
+
+}
