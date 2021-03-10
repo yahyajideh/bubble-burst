@@ -1,7 +1,7 @@
 {
   "name": "bubble-burst",
   "version": "1.0.0",
-  "description": "Burst my bubbles!!! Your goal is to burst (click) as many bubbles within the specified timer each level. As the levels increase, the timer gets quicker AND the bubbles rise quicker! I created this game to apply what I have learnt in Js, CSS and HTML.",
+  "description": "Burst my bubbles!!! Your goal is to burst (click) as many bubbles within the specified timer each level. As the levels increase, the timer gets quicker AND the bubbles rise quicker! I created this game to apply what I have learned in Js, CSS and HTML.",
   "main": "src/index.html",
   "scripts": {
     "dev": "parcel src/index.html",
