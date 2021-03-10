@@ -14,7 +14,8 @@ export const togglePauseModal = function togglePauseModal() {
 
 export const updateTimeProgress = function updateTimeProgress(timePassed) {
   const currentProgress = TIME_PROGRESS_MAX - timePassed * TIME_PROGRESS_DEC;
-  if (currentProgress <= 40) {
+
+  if (currentProgress <= 35) {
     timeProgressEl.classList.add('time-ending-animation');
   }
   timeProgressEl.style.width = `${currentProgress}%`;

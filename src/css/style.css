@@ -87,17 +87,15 @@ body {
   justify-content: space-between;
   margin-top: 20px;
   padding: 0 30px 0;
-  color: white;
+  color: var(--foam);
   font-size: 3rem;
 }
 
-.bubble-score-icon {
+.bubble {
   display: inline-block;
   width: 33px;
   height: 33px;
   border-radius: 50%;
-  background-color: var(--strawberry);
-  box-shadow: 4px 4px 0px var(--cyan);
   position: relative;
 }
 
@@ -105,13 +103,18 @@ body {
   position: absolute;
   width: 25%;
   height: 25%;
-  background-color: #fff;
+  background-color: var(--foam);
   border-radius: 50%;
   left: 23%;
   top: 27%;
 }
 
-.strawberry-white {
+.strawberry-white-background {
+  background-color: var(--strawberry);
+  box-shadow: 4px 4px 0px var(--cyan);
+}
+
+.strawberry-white-text {
   color: var(--strawberry);
   text-shadow: 3px 3px 0 var(--cyan);
 }
