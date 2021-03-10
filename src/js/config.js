@@ -1,3 +1,4 @@
 export const TICK_RATE = 1000;
-export const TIMER_BAR_WIDTH = 100;
-export const LEVEL_DURATION = 20;
+export const GAME_TIME_DURATION = 10;
+export const TIME_PROGRESS_MAX = 100;
+export const TIME_PROGRESS_DEC = TIME_PROGRESS_MAX / GAME_TIME_DURATION;

@@ -58,11 +58,28 @@ body {
   overflow: hidden;
 }
 
-.game-time-progress {
+.time-progress {
   height: 9px;
   background-color: var(--cyan);
   width: 100%;
   transition: width 1s linear;
+}
+
+@keyframes time-ending {
+  0% {
+    background-color: var(--cyan);
+  }
+  100% {
+    background-color: var(--strawberry);
+  }
+}
+
+.time-ending-animation {
+  animation-name: time-ending;
+  animation-duration: 0.2s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 .stats {
