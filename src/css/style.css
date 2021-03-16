@@ -12,6 +12,10 @@
   padding: 0;
 }
 
+*:focus {
+  outline: 0;
+}
+
 :root {
   --haiti: #070720;
   --blackcurrant: #12122f;
@@ -58,6 +62,59 @@ body {
   overflow: hidden;
 }
 
+.home-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.logo {
+  margin-bottom: 75px;
+}
+
+.btn {
+  display: block;
+  width: 382px;
+  height: 82px;
+  border-radius: 40px;
+  margin-bottom: 23px;
+  font-family: inherit;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--blackcurrant);
+  border: 3px solid var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0px 9px var(--cyan);
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(9px);
+  box-shadow: 0px 0px var(--cyan);
+  background-color: var(--cyan);
+  color: var(--blackcurrant);
+}
+
+.btn-secondary {
+  background-color: var(--blackcurrant);
+  border: 3px solid var(--strawberry);
+  color: var(--strawberry);
+  box-shadow: 0px 9px var(--strawberry);
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  transform: translateY(9px);
+  box-shadow: 0px 0px var(--strawberry);
+  background-color: var(--strawberry);
+  color: var(--blackcurrant);
+}
+
 .time-progress {
   height: 9px;
   background-color: var(--cyan);
@@ -102,6 +159,7 @@ body {
   animation-name: rise;
   animation-duration: 12s;
   animation-timing-function: ease-out;
+  /* animation-delay: 1s; */
 }
 
 .stats {
@@ -153,7 +211,7 @@ body {
   top: 5px;
 }
 
-.btn {
+.icon-btn {
   border-radius: 50%;
   color: var(--foam);
   padding: 0;
@@ -162,17 +220,13 @@ body {
   cursor: pointer;
 }
 
-.btn:focus {
-  outline: 0;
-}
-
-.btn-secondary {
+.icon-btn-secondary {
   background-color: var(--strawberry);
   box-shadow: 3px 3px var(--cyan);
   transition: all 0.2s;
 }
 
-.btn-secondary:hover {
+.icon-btn-secondary:hover {
   background-color: var(--cyan);
   box-shadow: 0px 0px var(--cyan);
   color: var(--strawberry);

@@ -1,14 +1,17 @@
 import { GAME_TIME_DURATION } from './config.js';
 import { updateTimeProgress } from './ui.js';
-import { generateBubbles, burstBubble } from './bubble.js';
+import { burstBubble, bubbleFactory } from './bubble.js';
 
 const gameState = {
   current: 'INIT',
   clock: 0,
+  ticks: 0,
   tick() {
-    if (this.clock >= 0) {
+    this.ticks++;
+
+    if (this.ticks % 2 == 0) {
+      this.clock++;
       updateTimeProgress(this.clock);
-      generateBubbles();
     }
 
     if (this.clock == GAME_TIME_DURATION) {
@@ -17,17 +20,15 @@ const gameState = {
       return 0;
     }
 
-    return this.clock++;
+    // bubbleFactory();
+
+    return this.ticks;
   },
   // startGame() {
   //   this.current = 'PLAYING';
   //   generateBubbles();
   // },
   handleUserAction() {
-    // if (this.current == 'INIT') {
-    //   this.startGame();
-    //   return;
-    // }
     burstBubble();
   },
 };

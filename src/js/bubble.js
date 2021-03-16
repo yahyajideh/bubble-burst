@@ -14,13 +14,16 @@ const getRandomPosition = function getRandomPosition() {
   return getRandomValue(7, 93);
 };
 
-export const generateBubbles = function generateBubbles() {
+export const bubbleFactory = function bubbleFactory() {
+  generateBubble();
+};
+
+const generateBubble = function generateBubble() {
   const bubble = document.createElement('div');
   const bubbleReflection = document.createElement('span');
   bubbleReflection.classList.add('bubble-reflection');
   bubble.appendChild(bubbleReflection);
-  bubble.classList.add('bubble');
-  bubble.classList.add('cyan');
+  bubble.classList.add('bubble', 'cyan');
   bubble.style.width = bubble.style.height = `${getRandomDiameter()}px`;
   bubble.style.left = `${getRandomPosition()}%`;
   gameFrameEl.appendChild(bubble);

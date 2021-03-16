@@ -7,8 +7,10 @@ function init() {
 
   function nextAnimationFrame() {
     const now = Date.now();
+
     if (nexTimeToTick <= now) {
-      console.log(`${game.tick()}s passed`);
+      // console.log(`${game.tick()}s passed`);
+      game.tick();
 
       nexTimeToTick = now + TICK_RATE;
     }

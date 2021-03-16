@@ -1,8 +1,4 @@
-import {
-  TIME_PROGRESS_MAX,
-  TIME_PROGRESS_DEC,
-  GAME_TIME_DURATION,
-} from './config.js';
+import { TIME_PROGRESS_MAX, TIME_PROGRESS_DEC } from './config.js';
 
 const timeProgressEl = document.querySelector('.time-progress');
 const scoreEl = document.querySelector('.player-score');
@@ -16,7 +12,7 @@ export const updateTimeProgress = function updateTimeProgress(timePassed) {
   }
   timeProgressEl.style.width = `${currentProgress}%`;
 
-  console.log(TIME_PROGRESS_MAX, timePassed, TIME_PROGRESS_DEC);
+  // console.log(TIME_PROGRESS_MAX, timePassed, TIME_PROGRESS_DEC);
 };
 
 export const updatePlayerScore = function updateScore() {
