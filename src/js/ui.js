@@ -11,6 +11,9 @@ const levelContainerEl = document.querySelector('.level-container');
 const levelEl = document.querySelector('.player-level');
 const readyTextEl = document.querySelector('.ready-text');
 const goTextEl = document.querySelector('.go-text');
+const aboutBtnEl = document.getElementById('aboutBtn');
+const aboutModalEl = document.querySelector('.about-modal');
+const closeAboutModalEl = document.getElementById('close-about-modal');
 
 let score = 0;
 let level = 1;
@@ -64,5 +67,21 @@ export const playGameBtnHandler = function playGameBtnHandler() {
       timeProgressEl.classList.remove('hidden-visibility');
       game.current = 'PLAYING';
     }, 2005);
+  });
+};
+
+export const aboutBtnHandler = function aboutBtnHandler() {
+  aboutBtnEl.addEventListener('click', () => {
+    aboutModalEl.classList.remove('hide');
+    setTimeout(() => {
+      aboutModalEl.classList.add('fade-in');
+    }, 100);
+  });
+  closeAboutModalEl.addEventListener('click', () => {
+    aboutModalEl.classList.remove('fade-in');
+    aboutModalEl.classList.add('fade-out');
+    setTimeout(() => {
+      aboutModalEl.classList.add('hide');
+    }, 300);
   });
 };

@@ -1,5 +1,10 @@
 import { GAME_TIME_DURATION } from './config.js';
-import { updateTimeProgress, playGameBtnHandler, increaseLevel } from './ui.js';
+import {
+  updateTimeProgress,
+  aboutBtnHandler,
+  playGameBtnHandler,
+  increaseLevel,
+} from './ui.js';
 import { burstBubbleHandler, bubbleFactory, removeBubbles } from './bubble.js';
 
 const gameState = {
@@ -41,11 +46,12 @@ const gameState = {
   increaseLevel() {
     removeBubbles();
     increaseLevel();
-    this.current = 'PLAYING';
+    this.current = 'TODO';
   },
   handleUserAction() {
     burstBubbleHandler();
     playGameBtnHandler();
+    aboutBtnHandler();
   },
 };
 

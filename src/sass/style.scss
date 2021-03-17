@@ -22,7 +22,7 @@ body {
   align-items: center;
   height: 100vh;
   font-family: 'JellyBean';
-  font-size: 16px;
+  font-size: $font-size;
 }
 
 #responsive-container {
@@ -231,12 +231,33 @@ body {
   border: none;
   background: none;
   cursor: pointer;
+  width: 45px;
+  height: 45px;
+}
+
+.icon-btn-primary {
+  background-color: $cyan;
+  box-shadow: 5px 5px $strawberry;
+  color: $strawberry;
+  font-size: 1.5rem;
+  transition: all 0.2s;
+}
+
+.icon-btn-primary:hover {
+  background-color: $strawberry;
+  box-shadow: 0px 0px $cyan;
+  color: $strawberry;
+  transform: translate(5px, 5px);
+  color: $cyan;
+  cursor: pointer;
 }
 
 .icon-btn-secondary {
   background-color: $strawberry;
-  box-shadow: 3px 3px $cyan;
+  box-shadow: 5px 5px $cyan;
   transition: all 0.2s;
+  color: $cyan;
+  font-size: 1.5rem;
 }
 
 .icon-btn-secondary:hover {
@@ -260,7 +281,8 @@ body {
   font-size: 1.2rem;
 }
 
-.paused-modal {
+.paused-modal,
+.about-modal {
   position: absolute;
   top: 0;
   left: 0;
@@ -271,16 +293,38 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transform: scale(0);
 }
 
 .modal {
-  width: 492px;
-  height: 296px;
+  width: 550px;
+  height: 365px;
   border-radius: 10px;
   background-color: $blackcurrant;
   border: 3px solid $cyan;
   box-shadow: 0 15px 0 $cyan;
   animation-duration: 1s;
+  text-align: center;
+  padding: 50px 50px 35px 50px;
+  hr {
+    border: 0;
+    height: 1px;
+    background: $blue-chill;
+    margin: 20px 0;
+    margin-left: 10%;
+    width: 80%;
+  }
+  .about-text {
+    width: 50%;
+  }
+  p {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    margin-bottom: 1rem;
+  }
 }
 
 @keyframes scalein {
@@ -359,10 +403,12 @@ body {
 
 .fade-out {
   opacity: 0;
-  transition: opacity 0.1s linear;
+  transform: scale(0);
+  transition: transform 0.2s linear, opacity 0.3s linear;
 }
 
 .fade-in {
   opacity: 1;
-  transition: opacity 0.2s linear;
+  transform: scale(1);
+  transition: transform 0.2s linear, opacity 0.3s linear;
 }

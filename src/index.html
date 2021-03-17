@@ -10,13 +10,31 @@
   <div id="game-container">
     <div class="game-frame">
       <div class="home-screen">
+        <div class="about-modal hide">
+          <div class="modal">
+            <img class="about-text" src="./img/about.png" alt="About" />
+            <hr />
+            <p>
+              Burst my bubbles!!! Your goal is to burst (click) as many bubbles
+              within the specified timer each level. As the levels increase, the
+              timer gets quicker AND the bubbles rise quicker!
+            </p>
+            <p>
+              I created this game to apply what I have learnt in Js, CSS and
+              HTML.
+            </p>
+            <button class="icon-btn icon-btn-primary" id="close-about-modal">
+              X
+            </button>
+          </div>
+        </div>
         <img
           class="logo"
           src="./img/bubble-burst-logo.png"
           alt="Bubble Burst"
         />
         <button class="btn btn-primary" id="playBtn">PLAY</button>
-        <button class="btn btn-secondary">ABOUT</button>
+        <button class="btn btn-secondary" id="aboutBtn">ABOUT</button>
       </div>
       <div class="game-play hidden-visibility">
         <div class="paused-modal hide">
