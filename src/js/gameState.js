@@ -1,6 +1,6 @@
 import { GAME_TIME_DURATION } from './config.js';
-import { updateTimeProgress, playGameBtnHandler } from './ui.js';
-import { burstBubble, bubbleFactory } from './bubble.js';
+import { updateTimeProgress, playGameBtnHandler, increaseLevel } from './ui.js';
+import { burstBubbleHandler, bubbleFactory, removeBubbles } from './bubble.js';
 
 const gameState = {
   current: 'INIT',
@@ -11,29 +11,40 @@ const gameState = {
       this.playGame();
     }
 
-    if (this.clock == GAME_TIME_DURATION + 1) {
-      this.gameFinished();
+    if (this.current == 'LEVEL_FINISHED') {
+      this.levelFinished();
+    }
+
+    if (this.current == 'INCREASE_LEVEL') {
+      this.increaseLevel();
     }
 
     return;
   },
   playGame() {
-    console.log(this.ticks);
     if (this.ticks % 2 == 0) {
-      console.log(`bubble created; tick: ${this.ticks}, clock: ${this.clock}`);
       updateTimeProgress(this.clock);
       this.clock++;
     }
-    this.ticks++;
+
+    if (this.clock == GAME_TIME_DURATION + 1) {
+      this.current = 'LEVEL_FINISHED';
+    }
 
     bubbleFactory();
+    this.ticks++;
   },
-  gameFinished() {
-    this.CURRENT = 'LEVEL_FINISHED';
+  levelFinished() {
+    this.current = 'INCREASE_LEVEL';
     this.clock = 0;
   },
+  increaseLevel() {
+    removeBubbles();
+    increaseLevel();
+    this.current = 'PLAYING';
+  },
   handleUserAction() {
-    burstBubble();
+    burstBubbleHandler();
     playGameBtnHandler();
   },
 };

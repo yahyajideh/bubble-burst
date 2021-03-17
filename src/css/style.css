@@ -161,7 +161,7 @@ body {
   animation-name: rise;
   animation-duration: 12s;
   animation-timing-function: ease-out;
-  /* animation-delay: 1s; */
+  animation-delay: 1s;
 }
 
 .stats {
@@ -211,6 +211,28 @@ body {
   align-self: center;
   position: relative;
   top: 5px;
+}
+
+.level-container {
+  transform: translate(0, 0);
+}
+
+.level-animation {
+  animation-name: increment-level;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+  animation-iteration-count: 2;
+  animation-delay: 1s;
+}
+
+@keyframes increment-level {
+  50% {
+    transform: scale(2) translate(-200px, 100px);
+  }
+  100% {
+    transform: scale(2) translate(-200px, 100px);
+  }
 }
 
 .icon-btn {

@@ -11,7 +11,7 @@ const getRandomDiameter = function getRandomDiameter() {
 };
 
 const getRandomPosition = function getRandomPosition() {
-  return getRandomValue(7, 93);
+  return getRandomValue(7, 85);
 };
 
 export const bubbleFactory = function bubbleFactory() {
@@ -29,7 +29,7 @@ const generateBubble = function generateBubble() {
   gameFrameEl.appendChild(bubble);
 };
 
-export const burstBubble = function burstBubble() {
+export const burstBubbleHandler = function burstBubble() {
   gameFrameEl.addEventListener('click', e => {
     const bubbleEl = e.target.closest('.bubble');
     if (!bubbleEl) return;
@@ -37,4 +37,11 @@ export const burstBubble = function burstBubble() {
     bubbleEl.parentElement.removeChild(bubbleEl);
     updatePlayerScore();
   });
+};
+
+export const removeBubbles = function removeBubbles() {
+  const bubbles = document.querySelectorAll('.bubble');
+  setTimeout(() => {
+    [...bubbles].forEach(bubble => bubble.parentElement.removeChild(bubble));
+  }, 1000);
 };

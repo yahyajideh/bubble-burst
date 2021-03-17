@@ -2,15 +2,18 @@ import { TIME_PROGRESS_MAX, TIME_PROGRESS_DEC } from './config.js';
 import game from './gameState.js';
 
 const playButtonEl = document.getElementById('playBtn');
-const gamePlay = document.querySelector('.game-play');
+const gamePlayEl = document.querySelector('.game-play');
 const homeScreenEl = document.querySelector('.home-screen');
 const timeProgressEl = document.querySelector('.time-progress');
 const pauseBtnEl = document.querySelector('.pause-button');
 const scoreEl = document.querySelector('.player-score');
+const levelContainerEl = document.querySelector('.level-container');
+const levelEl = document.querySelector('.player-level');
 const readyTextEl = document.querySelector('.ready-text');
 const goTextEl = document.querySelector('.go-text');
 
 let score = 0;
+let level = 1;
 
 export const updateTimeProgress = function updateTimeProgress(timePassed) {
   const currentProgress = TIME_PROGRESS_MAX - timePassed * TIME_PROGRESS_DEC;
@@ -19,8 +22,6 @@ export const updateTimeProgress = function updateTimeProgress(timePassed) {
     timeProgressEl.classList.add('time-ending-animation');
   }
   timeProgressEl.style.width = `${currentProgress}%`;
-
-  // console.log(TIME_PROGRESS_MAX, timePassed, TIME_PROGRESS_DEC);
 };
 
 export const updatePlayerScore = function updateScore() {
@@ -28,13 +29,24 @@ export const updatePlayerScore = function updateScore() {
   scoreEl.textContent = score;
 };
 
+export const increaseLevel = function increaseLevel() {
+  level++;
+  levelContainerEl.classList.add('level-animation');
+  setTimeout(() => {
+    levelEl.textContent = level;
+  }, 1000);
+  setTimeout(() => {
+    levelContainerEl.classList.remove('level-animation');
+  }, 3000);
+};
+
 export const playGameBtnHandler = function playGameBtnHandler() {
   playButtonEl.addEventListener('click', () => {
     homeScreenEl.classList.add('fade-out');
     setTimeout(() => {
       homeScreenEl.classList.add('hide');
-      gamePlay.classList.remove('hidden-visibility');
-      gamePlay.classList.add('slide-down');
+      gamePlayEl.classList.remove('hidden-visibility');
+      gamePlayEl.classList.add('slide-down');
     }, 100);
     setTimeout(() => {
       readyTextEl.classList.remove('hidden-visibility');
