@@ -42,6 +42,8 @@ export const burstBubbleHandler = function burstBubble() {
 export const removeBubbles = function removeBubbles() {
   const bubbles = document.querySelectorAll('.bubble');
   setTimeout(() => {
-    [...bubbles].forEach(bubble => bubble.parentElement.removeChild(bubble));
+    [...bubbles].forEach(bubble => {
+      if (bubble.parentElement) bubble.parentElement.removeChild(bubble);
+    });
   }, 1000);
 };
