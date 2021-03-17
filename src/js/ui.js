@@ -50,7 +50,6 @@ export const playGameBtnHandler = function playGameBtnHandler() {
       pauseBtnEl.classList.remove('hidden-visibility');
       pauseBtnEl.classList.add('fade-in');
       timeProgressEl.classList.remove('hidden-visibility');
-      timeProgressEl.classList.add('fade-in');
       game.current = 'PLAYING';
     }, 2005);
   });

@@ -7,30 +7,31 @@ const gameState = {
   clock: 0,
   ticks: 0,
   tick() {
-    this.ticks++;
-
     if (this.current == 'PLAYING') {
+      this.playGame();
+    }
+
+    if (this.clock == GAME_TIME_DURATION + 1) {
+      this.gameFinished();
+    }
+
+    return;
+  },
+  playGame() {
+    console.log(this.ticks);
+    if (this.ticks % 2 == 0) {
+      console.log(`bubble created; tick: ${this.ticks}, clock: ${this.clock}`);
+      updateTimeProgress(this.clock);
       this.clock++;
     }
+    this.ticks++;
 
-    if (this.ticks % 2 == 0) {
-      updateTimeProgress(this.clock);
-    }
-
-    if (this.clock == GAME_TIME_DURATION) {
-      this.CURRENT = 'LEVEL_FINISHED';
-      this.clock = 0;
-      return 0;
-    }
-
-    // bubbleFactory();
-
-    return this.ticks;
+    bubbleFactory();
   },
-  // startGame() {
-  //   this.current = 'PLAYING';
-  //   generateBubbles();
-  // },
+  gameFinished() {
+    this.CURRENT = 'LEVEL_FINISHED';
+    this.clock = 0;
+  },
   handleUserAction() {
     burstBubble();
     playGameBtnHandler();

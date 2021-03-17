@@ -73,6 +73,7 @@ body {
 
 .logo {
   margin-bottom: 75px;
+  width: 50%;
 }
 
 .btn {
@@ -122,7 +123,6 @@ body {
   width: 100%;
   transition: width 1s linear;
   z-index: 999;
-  opacity: 0;
 }
 
 @keyframes time-ending {
