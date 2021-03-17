@@ -1,5 +1,5 @@
 import { GAME_TIME_DURATION } from './config.js';
-import { updateTimeProgress } from './ui.js';
+import { updateTimeProgress, playGameBtnHandler } from './ui.js';
 import { burstBubble, bubbleFactory } from './bubble.js';
 
 const gameState = {
@@ -9,8 +9,11 @@ const gameState = {
   tick() {
     this.ticks++;
 
-    if (this.ticks % 2 == 0) {
+    if (this.current == 'PLAYING') {
       this.clock++;
+    }
+
+    if (this.ticks % 2 == 0) {
       updateTimeProgress(this.clock);
     }
 
@@ -30,6 +33,7 @@ const gameState = {
   // },
   handleUserAction() {
     burstBubble();
+    playGameBtnHandler();
   },
 };
 

@@ -15,14 +15,14 @@
           src="css/images/bubble-burst-logo.png"
           alt="Bubble Burst"
         />
-        <button class="btn btn-primary">PLAY</button>
+        <button class="btn btn-primary" id="playBtn">PLAY</button>
         <button class="btn btn-secondary">ABOUT</button>
       </div>
-      <div class="game-play hide">
+      <div class="game-play hidden-visibility">
         <div class="paused-modal hide">
           <div class="modal"></div>
         </div>
-        <div class="time-progress"></div>
+        <div class="time-progress hidden-visibility"></div>
         <div class="stats">
           <div class="score-container">
             <div class="bubble-score strawberry-cyan-background">
@@ -35,7 +35,17 @@
             <span class="player-level">1</span>
           </div>
         </div>
-        <div class="pause-button">
+        <div>
+          <img
+            src="./css/images/ready-text.png"
+            class="ready-text hidden-visibility"
+          />
+          <img
+            src="./css/images/go-text.png"
+            class="go-text hidden-visibility"
+          />
+        </div>
+        <div class="pause-button hidden-visibility">
           <button class="icon-btn icon-btn-secondary">||</button>
         </div>
       </div>

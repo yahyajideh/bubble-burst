@@ -9,9 +9,7 @@ function init() {
     const now = Date.now();
 
     if (nexTimeToTick <= now) {
-      // console.log(`${game.tick()}s passed`);
       game.tick();
-
       nexTimeToTick = now + TICK_RATE;
     }
     requestAnimationFrame(nextAnimationFrame);
