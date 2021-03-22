@@ -147,10 +147,10 @@ body {
   border-radius: 50%;
   position: absolute;
   bottom: -20%;
-  animation-name: rise;
-  animation-duration: 12s;
-  animation-timing-function: ease-out;
-  animation-delay: 1s;
+  // animation-name: rise;
+  // animation-duration: 12s;
+  // animation-timing-function: ease-out;
+  // animation-delay: 1s;
 }
 
 .stats {
@@ -217,10 +217,10 @@ body {
 
 @keyframes increment-level {
   50% {
-    transform: scale(2) translate(-200px, 100px);
+    transform: scale(2) translate(-185px, 100px);
   }
   100% {
-    transform: scale(2) translate(-200px, 100px);
+    transform: scale(2) translate(-185px, 100px);
   }
 }
 
@@ -289,7 +289,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(18, 18, 47, 0.8);
-  z-index: 1;
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -307,6 +307,7 @@ body {
   animation-duration: 1s;
   text-align: center;
   padding: 50px 50px 35px 50px;
+  z-index: 999;
   hr {
     border: 0;
     height: 1px;

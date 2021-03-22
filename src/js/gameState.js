@@ -4,12 +4,20 @@ import {
   aboutBtnHandler,
   playGameBtnHandler,
   increaseLevel,
+  pauseBtnHandler,
+  resumBtnHandler,
 } from './ui.js';
-import { burstBubbleHandler, bubbleFactory, removeBubbles } from './bubble.js';
+import {
+  burstBubbleHandler,
+  generateBubble,
+  removeBubbles,
+  pauseBubbles,
+} from './bubble.js';
 
 const gameState = {
   current: 'INIT',
-  clock: 0,
+  level: 1,
+  clock: 1,
   ticks: 0,
   tick() {
     if (this.current == 'PLAYING') {
@@ -36,7 +44,7 @@ const gameState = {
       this.current = 'LEVEL_FINISHED';
     }
 
-    bubbleFactory();
+    generateBubble(this.level);
     this.ticks++;
   },
   levelFinished() {
@@ -44,14 +52,22 @@ const gameState = {
     this.clock = 0;
   },
   increaseLevel() {
+    this.current = 'STATE_TRANSITION';
     removeBubbles();
-    increaseLevel();
-    this.current = 'TODO';
+    increaseLevel(++this.level);
+    this.stateTransition('PLAYING', 2000);
   },
   handleUserAction() {
     burstBubbleHandler();
     playGameBtnHandler();
     aboutBtnHandler();
+    pauseBtnHandler(pauseBubbles);
+    resumBtnHandler(pauseBubbles);
+  },
+  stateTransition(state, wait) {
+    setTimeout(() => {
+      this.current = state;
+    }, wait);
   },
 };
 
