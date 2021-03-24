@@ -1,8 +1,12 @@
-<p align="center">
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cda4d8c1-9b39-4353-9175-70fc121d4235/deploy-status)](https://app.netlify.com/sites/bubbleburst/deploys)
-</p>
+<div align="center">
+  <img src="src/img/bubble-burst-logo.png" alt="Bubble Burst Logo" width="50%">
+</div>
 
-# Bubble Burst
+<p align="center">
+  <a href="https://app.netlify.com/sites/bubbleburst/deploys">
+    <img src="https://api.netlify.com/api/v1/badges/cda4d8c1-9b39-4353-9175-70fc121d4235/deploy-status" alt="Netlify Status">
+  </a>
+</p>
 
 I created this game **to apply what I have recently learned** in JS, CSS and HTML.
 
