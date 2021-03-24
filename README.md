@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cda4d8c1-9b39-4353-9175-70fc121d4235/deploy-status)](https://app.netlify.com/sites/bubbleburst/deploys)
+
 # Bubble Burst
 
 I created this game **to apply what I have recently learned** in JS, CSS and HTML.
