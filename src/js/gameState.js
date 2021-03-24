@@ -6,6 +6,8 @@ import {
   increaseLevel,
   pauseBtnHandler,
   resumBtnHandler,
+  exitGameBtnHandler,
+  restartBtnHandler,
 } from './ui.js';
 import {
   burstBubbleHandler,
@@ -53,7 +55,7 @@ const gameState = {
   },
   increaseLevel() {
     this.current = 'STATE_TRANSITION';
-    removeBubbles();
+    removeBubbles(1000);
     increaseLevel(++this.level);
     this.stateTransition('PLAYING', 2000);
   },
@@ -63,6 +65,8 @@ const gameState = {
     aboutBtnHandler();
     pauseBtnHandler(pauseBubbles);
     resumBtnHandler(pauseBubbles);
+    exitGameBtnHandler();
+    restartBtnHandler();
   },
   stateTransition(state, wait) {
     setTimeout(() => {

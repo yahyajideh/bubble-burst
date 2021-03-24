@@ -33,18 +33,23 @@ export const burstBubbleHandler = function burstBubble() {
     const bubbleEl = e.target.closest('.bubble');
     if (!bubbleEl) return;
 
-    bubbleEl.parentElement.removeChild(bubbleEl);
+    bubbleEl.classList.add('bubble-pop');
+
+    setTimeout(() => {
+      bubbleEl.parentElement.removeChild(bubbleEl);
+    }, 200);
+
     updatePlayerScore();
   });
 };
 
-export const removeBubbles = function removeBubbles() {
+export const removeBubbles = function removeBubbles(wait = 0) {
   const bubbles = document.querySelectorAll('.bubble');
   setTimeout(() => {
     bubbles.forEach(bubble => {
       if (bubble.parentElement) bubble.parentElement.removeChild(bubble);
     });
-  }, 1000);
+  }, wait);
 };
 
 export const pauseBubbles = function pauseBubbles() {

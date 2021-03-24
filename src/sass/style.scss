@@ -151,6 +151,12 @@ body {
   // animation-duration: 12s;
   // animation-timing-function: ease-out;
   // animation-delay: 1s;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.bubble-pop {
+  opacity: 0;
+  transform: scale(1.2);
 }
 
 .stats {
@@ -243,6 +249,12 @@ body {
   transition: all 0.2s;
 }
 
+.icon-btn-large.icon-btn-primary {
+  width: 65px;
+  height: 65px;
+  box-shadow: 7px 7px $strawberry;
+}
+
 .icon-btn-primary:hover {
   background-color: $strawberry;
   box-shadow: 0px 0px $cyan;
@@ -260,12 +272,36 @@ body {
   font-size: 1.5rem;
 }
 
+.icon-btn-large.icon-btn-secondary {
+  width: 65px;
+  height: 65px;
+  box-shadow: 7px 7px $cyan;
+}
+
+.icon-secondary {
+  margin-top: 5px;
+  fill: $cyan;
+}
+
+.icon-primary {
+  margin-top: 5px;
+  fill: $strawberry;
+}
+
 .icon-btn-secondary:hover {
   background-color: $cyan;
   box-shadow: 0px 0px $cyan;
   color: $strawberry;
   transform: translate(3px, 3px);
   cursor: pointer;
+}
+
+.icon-btn-secondary:hover .icon-secondary {
+  fill: $strawberry;
+}
+
+.icon-btn-primary:hover .icon-primary {
+  fill: $cyan;
 }
 
 .pause-button {
@@ -298,8 +334,6 @@ body {
 }
 
 .modal {
-  width: 550px;
-  height: 365px;
   border-radius: 10px;
   background-color: $blackcurrant;
   border: 3px solid $cyan;
@@ -326,6 +360,22 @@ body {
     line-height: 1.2rem;
     margin-bottom: 1rem;
   }
+}
+
+.about-modal .modal {
+  width: 550px;
+  height: 365px;
+}
+
+.paused-modal .modal {
+  width: 492px;
+  height: 295px;
+}
+
+.paused-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
 }
 
 @keyframes scalein {

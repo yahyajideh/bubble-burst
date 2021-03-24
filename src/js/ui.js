@@ -1,4 +1,5 @@
 import { TIME_PROGRESS_MAX, TIME_PROGRESS_DEC } from './config.js';
+import { removeBubbles } from './bubble.js';
 import gameState from './gameState.js';
 
 const playButtonEl = document.getElementById('playBtn');
@@ -18,6 +19,8 @@ const pauseBtn = document.querySelector('.pause-button');
 const pauseModalEl = document.querySelector('.paused-modal');
 const modal = document.querySelector('.modal');
 const resumeBtnEl = document.getElementById('resume-button');
+const exitBtnEl = document.getElementById('exit-button');
+const restartBtnEl = document.getElementById('restart-button');
 
 let score = 0;
 
@@ -55,30 +58,34 @@ export const increaseLevel = function increaseLevel(level) {
   }, 3000);
 };
 
+const playGame = function playGame() {
+  setTimeout(() => {
+    homeScreenEl.classList.add('hide');
+    gamePlayEl.classList.remove('hidden-visibility');
+    gamePlayEl.classList.add('slide-down');
+  }, 100);
+  setTimeout(() => {
+    readyTextEl.classList.remove('hidden-visibility');
+    readyTextEl.classList.add('ready-text--animation');
+  }, 110);
+  setTimeout(() => {
+    readyTextEl.classList.add('hide');
+    goTextEl.classList.remove('hidden-visibility');
+    goTextEl.classList.add('ready-text--animation');
+  }, 1000);
+  setTimeout(() => {
+    goTextEl.classList.add('hide');
+    pauseBtnEl.classList.remove('hidden-visibility');
+    pauseBtnEl.classList.add('fade-in');
+    timeProgressEl.classList.remove('hidden-visibility');
+    gameState.current = 'PLAYING';
+  }, 2005);
+};
+
 export const playGameBtnHandler = function playGameBtnHandler() {
   playButtonEl.addEventListener('click', () => {
     homeScreenEl.classList.add('fade-out');
-    setTimeout(() => {
-      homeScreenEl.classList.add('hide');
-      gamePlayEl.classList.remove('hidden-visibility');
-      gamePlayEl.classList.add('slide-down');
-    }, 100);
-    setTimeout(() => {
-      readyTextEl.classList.remove('hidden-visibility');
-      readyTextEl.classList.add('ready-text--animation');
-    }, 110);
-    setTimeout(() => {
-      readyTextEl.classList.add('hide');
-      goTextEl.classList.remove('hidden-visibility');
-      goTextEl.classList.add('ready-text--animation');
-    }, 1000);
-    setTimeout(() => {
-      goTextEl.classList.add('hide');
-      pauseBtnEl.classList.remove('hidden-visibility');
-      pauseBtnEl.classList.add('fade-in');
-      timeProgressEl.classList.remove('hidden-visibility');
-      gameState.current = 'PLAYING';
-    }, 2005);
+    playGame();
   });
 };
 
@@ -112,7 +119,6 @@ export const pauseBtnHandler = function pauseBtnHandler(pauseBubbles) {
 
 export const resumBtnHandler = function pauseBtnHandler(pauseBubbles) {
   resumeBtnEl.addEventListener('click', () => {
-    console.log('rb');
     gameState.current = gameState.current == 'PAUSED' ? 'PLAYING' : 'PAUSED';
     pauseBubbles();
 
@@ -120,5 +126,61 @@ export const resumBtnHandler = function pauseBtnHandler(pauseBubbles) {
     setTimeout(() => {
       pauseModalEl.classList.add('hide');
     }, 300);
+  });
+};
+
+export const restartBtnHandler = function restartBtnHandler() {
+  restartBtnEl.addEventListener('click', () => {
+    scoreEl.textContent = 0;
+    levelEl.textContent = 1;
+    score = 0;
+    gameState.level = 1;
+    removeBubbles();
+    gameState.current = 'START';
+    gameState.clock = 1;
+    gameState.ticks = 0;
+    pauseModalEl.classList.add('hide');
+    pauseModalEl.classList.remove('fade-in');
+    gamePlayEl.classList.remove('slide-down');
+    readyTextEl.classList.remove('ready-text--animation');
+    readyTextEl.classList.add('hidden-visibility');
+    readyTextEl.classList.remove('hide');
+    goTextEl.classList.remove('ready-text--animation');
+    goTextEl.classList.add('hidden-visibility');
+    goTextEl.classList.remove('hide');
+    pauseBtnEl.classList.add('hidden-visibility');
+    pauseBtnEl.classList.remove('fade-in');
+    timeProgressEl.classList.add('hidden-visibility');
+    timeProgressEl.style.width = `100%`;
+    playGame();
+  });
+};
+
+export const exitGameBtnHandler = function exitGameBtnHandler() {
+  exitBtnEl.addEventListener('click', () => {
+    scoreEl.textContent = 0;
+    levelEl.textContent = 1;
+    score = 0;
+    gameState.level = 1;
+    removeBubbles();
+    gameState.current = 'START';
+    gameState.clock = 1;
+    gameState.ticks = 0;
+    homeScreenEl.classList.remove('hide');
+    homeScreenEl.classList.remove('fade-out');
+    gamePlayEl.classList.add('hidden-visibility');
+    pauseModalEl.classList.add('hide');
+    pauseModalEl.classList.remove('fade-in');
+    gamePlayEl.classList.remove('slide-down');
+    readyTextEl.classList.remove('ready-text--animation');
+    readyTextEl.classList.add('hidden-visibility');
+    readyTextEl.classList.remove('hide');
+    goTextEl.classList.remove('ready-text--animation');
+    goTextEl.classList.add('hidden-visibility');
+    goTextEl.classList.remove('hide');
+    pauseBtnEl.classList.add('hidden-visibility');
+    pauseBtnEl.classList.remove('fade-in');
+    timeProgressEl.classList.add('hidden-visibility');
+    timeProgressEl.style.width = `100%`;
   });
 };
